@@ -1,0 +1,29 @@
+伝言板
+<p id="伝言エリア">伝言はまだありません</p>
+
+<input id="入力内容">
+  <button onclick="伝言する();">セット</button>
+  <button onclick="消去する();">消去</button>
+
+<script>
+function 伝言する() {
+  if (入力内容.value === "") {
+    alert("内容を入れてください");
+  } else {
+    伝言エリア.innerText = 入力内容.value;
+    alert("伝言をセットしました");
+  }
+}
+function 消去する() {
+  if (伝言エリア.innerText === "伝言はまだありません" && 入力内容.value === "") {
+    alert("消去する伝言がありません");
+  } else {
+    if (!confirm("本当に消去しますか?")) {
+      return;
+    }
+    伝言エリア.innerText = "伝言はまだありません";
+    入力内容.value = "";
+    alert("伝言を消去しました");
+  }
+}
+</script>
